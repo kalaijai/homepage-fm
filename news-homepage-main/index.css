@@ -1,0 +1,286 @@
+
+:root {
+    --soft-orange: hsl(35, 77%, 62%);
+    --soft-red: hsl(5, 85%, 63%);
+    --off-white: hsl(36, 100%, 99%);
+    --grayish-blue: hsl(233, 8%, 79%);
+    --dark-grayish-blue: hsl(236, 13%, 42%);
+    --very-dark-blue: hsl(240, 100%, 5%);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: hsl(36, 100%, 99%);
+    padding: 2rem 5rem;
+    color: hsl(236, 13%, 42%);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: hsl(240, 100%, 5%);
+
+}
+
+.nav a {
+    text-decoration: none;
+    color:  hsl(236, 13%, 42%);
+    margin-left: 2rem;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: red;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 2rem;
+}
+
+.featured-section {
+    grid-row: 1;
+    grid-column: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.featured-image-container {
+    grid-column: 1 / -1;
+    width: 100%;
+}
+
+.featured-image {
+    width: 100%;
+    display: block;
+}
+
+.featured-article {
+    display: flex;
+    gap: 2rem;
+    grid-column: 1 / -1;
+}
+
+.featured-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1;
+    color: hsl(240, 100%, 5%);
+    flex: 1;
+}
+
+.featured-description-readmore {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.featured-description {
+    line-height: 1.6;
+}
+
+.read-more-btn {
+    background-color: var(--soft-red);
+    color: var(--off-white);
+    border: none;
+    padding: 1rem 2rem;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: fit-content;
+    transition: background-color 0.3s ease;
+}
+
+.read-more-btn:hover {
+    background-color: var(--very-dark-blue);
+}
+
+.new-section {
+    grid-row: 1 / span 1;
+    grid-column: 2;
+    background-color: var(--very-dark-blue);
+    color: var(--off-white);
+    padding: 2rem;
+}
+
+.new-section-title {
+    color: var(--soft-orange);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.new-article {
+    padding: 1.5rem 0;
+}
+
+.new-article:not(:last-child) {
+    border-bottom: 1px solid var hsl(236, 13%, 42%);
+}
+
+.new-article-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.new-article-title:hover {
+    color: var(--soft-orange);
+}
+
+.new-article-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color:  hsl(236, 13%, 42%);
+}
+
+.bottom-articles {
+    grid-row: 2;
+    grid-column: 1;
+    display: flex;
+    gap: 4rem;
+    margin-top: 2rem;
+}
+
+.article-card {
+    display: flex;
+    gap: 1.5rem;
+    flex: 1;
+}
+
+.article-card-image {
+    width: 100px;
+    height: 120px;
+    object-fit: cover;
+}
+
+.article-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.article-card-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color:  hsl(236, 13%, 42%);
+}
+
+.article-card-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color:hsl(240, 100%, 5%);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.article-card-title:hover {
+    color: var(--soft-red);
+}
+
+.article-card-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+/* Styling for the hamburger button container */
+.hamburger-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Styling for each line of the hamburger icon */
+.line {
+  width: 100%;
+  height: 3px;
+  background-color: #333;
+  transition: all 0.3s ease;
+}
+
+/* Initial state of the navigation links (hidden) */
+.nav {
+  display: none;
+}
+
+/* A class to show the navigation links when the button is clicked */
+.nav.active {
+  display: block;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+
+    .featured-section {
+        grid-column: 1;
+    }
+    
+    .new-section {
+        grid-row: auto;
+        grid-column: 1;
+    }
+
+    .bottom-articles {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav {
+        margin-top: 1rem;
+    }
+
+    .nav a {
+        margin-left: 0;
+        margin-right: 1rem;
+    }
+    
+    .featured-article {
+        flex-direction: column;
+    }
+
+    .featured-title {
+        font-size: 2.5rem;
+    }
+
+    .read-more-btn {
+        margin-top: 1rem;
+    }
+}
